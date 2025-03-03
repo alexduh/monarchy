@@ -12,7 +12,7 @@ Our server is written in Scala using Akka for HTTP and Websocket support. Set up
 1. Set up Postgres locally via `brew`
 
 ```bash
-brew install postgres
+brew install postgresql
 brew services start postgresql
 createdb
 psql
@@ -29,7 +29,7 @@ bazel run //server/src/web
 4. Set up database schema and seed with some data.
 
 ```bash
-cat ./database/1-init.sql | psql -d monarchy_local
+cat ./database/1-users.sql | psql -d monarchy_local
 cat ./database/2-game-schema.sql | psql -d monarchy_local
 # and so on, will script this soon
 ./database/seed.sh
@@ -45,5 +45,4 @@ You can find the development client in [`clients/web-devel`](https://github.com/
 1. In a separate tab, navigate to `clients/web-devel`
 1. Run `yarn`
 1. Run `yarn dev`
-
 This app is already configured to talk to your server on `localhost:8080`
